@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roots &amp; Runes – Michael Jr B-O</title>
+<meta name="description" content="Roots & Runes: a cozy survivor-roguelike for mobile, built in Unity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="logo" href="index.html">Michael Jr B-O</a>
+  </nav>
+</header>
+
+<main class="project">
+  <a class="back" href="index.html">← All games</a>
+
+  <div class="hero"
+       style="background-image: url('images/roots-and-runes.png'), linear-gradient(160deg, #1f3a2c, #3d6b3a 55%, #c9a04a);">
+    <h1>Roots &amp; Runes</h1>
+  </div>
+  <div class="tags">
+    <span class="tag unity">Unity</span>
+    <span class="tag csharp">C#</span>
+    <span class="tag mobile">mobile</span>
+  </div>
+
+  <!-- ===== Overview ===== -->
+  <section>
+    <h2>Overview</h2>
+    <p>Roots &amp; Runes is a cozy survivor-roguelike for iOS and Android. You play a wizard defending a mushroom forest against waves of enemies, growing stronger with every run.</p>
+    <p class="todo">Write 2–3 more sentences: what the player does minute to minute, what makes the game feel "cozy", and what the goal of a run is.</p>
+  </section>
+
+  <!-- ===== Gameplay video ===== -->
+  <section>
+    <h2>Gameplay</h2>
+    <!-- Replace the text with: <video src="images/roots-and-runes.mp4" controls muted playsinline></video> -->
+    <div class="video">Gameplay video coming soon</div>
+  </section>
+
+  <!-- ===== My role ===== -->
+  <section>
+    <h2>My role</h2>
+    <p class="todo">Solo project or team? If team: how many people, and which parts were yours?</p>
+    <ul class="checks">
+      <li>Designed and programmed the core survivor gameplay loop</li>
+      <li>Built a divine light beam attack with 2D lighting, screen flash and camera shake</li>
+      <li>Set up the project for mobile builds on iOS and Android</li>
+    </ul>
+  </section>
+
+  <!-- ===== Design documentation ===== -->
+  <section>
+    <h2>Design decisions</h2>
+    <p>How and why I made the key design choices and changes in the project.</p>
+
+    <!-- Copy one <article class="entry"> block per decision -->
+    <article class="entry">
+      <h3>Divine light beam attack</h3>
+      <dl>
+        <dt>Problem</dt>
+        <dd>Unity's built-in particle system felt too flat for a big, high-impact attack.</dd>
+        <dt>What I did</dt>
+        <dd>Built the beam from a Line Renderer with additive blending, a warning circle on the ground before it strikes, a 2D point light that lights up nearby enemies and terrain, plus a short screen flash and camera shake.</dd>
+        <dt>Why</dt>
+        <dd>The warning circle tells the player where the beam will land, and the light, flash and shake make the hit feel powerful.</dd>
+        <dt>Result</dt>
+        <dd class="todo">How did it turn out? What did players or testers say? Anything you would change?</dd>
+      </dl>
+    </article>
+
+    <article class="entry">
+      <h3 class="todo">Decision 2 – e.g. choosing mobile as the platform</h3>
+      <dl>
+        <dt>Problem</dt>
+        <dd class="todo">What was the problem or goal?</dd>
+        <dt>What I did</dt>
+        <dd class="todo">What did you build or change?</dd>
+        <dt>Why</dt>
+        <dd class="todo">Why this solution and not another one?</dd>
+        <dt>Result</dt>
+        <dd class="todo">What happened afterwards?</dd>
+      </dl>
+    </article>
+  </section>
+</main>
+
+<footer>© Michael Jr B-O</footer>
+
+</body>
+</html>

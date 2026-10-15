@@ -1,0 +1,175 @@
+:root {
+  --bg: #2b2b2b;
+  --bar: #141414;
+  --box: #333;
+  --border: #555;
+  --border-hover: #9ec5ff;
+  --text: #e8e8e8;
+  --muted: #bdbdbd;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Nunito", system-ui, sans-serif;
+  line-height: 1.6;
+}
+a { color: var(--border-hover); }
+
+/* ---------- Nav bar ---------- */
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bar);
+  border-top: 3px solid #3a3a3a;
+}
+nav {
+  max-width: 1200px; margin: 0 auto;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 32px;
+}
+.logo {
+  font-family: "Abel", sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ---------- Tags ---------- */
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { padding: 2px 9px; border-radius: 4px; font-size: .95rem; color: #fff; }
+.tag.unity  { background: #4a4a4a; }
+.tag.csharp { background: #6a3fa0; }
+.tag.mobile { background: #3f7a5a; }
+.tag.roblox { background: #b23b3b; }
+.tag.lua    { background: #2f4f9e; }
+
+/* ---------- Checkmark lists ---------- */
+.checks { list-style: none; font-size: 1.1rem; }
+.checks li { position: relative; padding-left: 30px; margin-bottom: 4px; }
+.checks li::before { content: "✔"; position: absolute; left: 0; top: 0; color: #fff; }
+
+/* ---------- Front page: game boxes ---------- */
+.home {
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 16px 64px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 470px));
+  justify-content: center;
+  gap: 48px;
+}
+.card {
+  display: block;
+  padding: 16px 16px 24px;
+  background: var(--box);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .2s, transform .2s;
+}
+.card:hover, .card:focus-visible { border-color: var(--border-hover); transform: translateY(-4px); outline: none; }
+.card-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.card-title {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 18px 12px;
+  background: rgba(20, 20, 20, .8);
+  font-family: "Abel", sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  text-align: center;
+  color: #fff;
+}
+.card .tags { margin: 16px 0 12px; }
+.card-body { padding: 0 8px; }
+.card .desc { color: var(--muted); margin-bottom: 16px; }
+.list-title { font-size: 1.1rem; margin: 0 0 6px 30px; }
+.read-more { margin-top: 16px; color: var(--border-hover); font-weight: 600; }
+
+/* ---------- Project pages ---------- */
+.project {
+  max-width: 860px; margin: 0 auto;
+  padding: 40px 16px 80px;
+}
+.back { display: inline-block; margin-bottom: 24px; text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.hero {
+  position: relative;
+  aspect-ratio: 16 / 7;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.hero h1 {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 16px;
+  background: rgba(20, 20, 20, .8);
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  text-align: center;
+}
+.project .tags { margin: 16px 0 32px; }
+.project section { margin-bottom: 48px; }
+.project h2 {
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+.project p { margin-bottom: 12px; }
+.video {
+  aspect-ratio: 16 / 9;
+  background: #1c1c1c;
+  border: 2px dashed var(--border);
+  border-radius: 6px;
+  display: grid; place-items: center;
+  color: var(--muted);
+}
+.video video, .video iframe { width: 100%; height: 100%; border: 0; border-radius: 4px; }
+
+/* One design decision / change */
+.entry {
+  background: var(--box);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.entry h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.entry dt { font-weight: 600; color: #fff; margin-top: 10px; }
+.entry dd { color: var(--muted); }
+
+/* Text you still need to write — remove the class when done */
+.todo {
+  border: 1px dashed #c9a04a;
+  background: rgba(201, 160, 74, .08);
+  color: #e6c98a !important;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+footer { text-align: center; color: var(--muted); padding: 32px 16px; font-size: .9rem; }
+
+@media (max-width: 600px) {
+  .logo { font-size: 1.6rem; }
+  .home { padding-top: 40px; }
+  .card-title { font-size: 2rem; }
+  .hero { aspect-ratio: 4 / 3; }
+  .hero h1 { font-size: 2.2rem; }
+  .entry { padding: 16px; }
+}

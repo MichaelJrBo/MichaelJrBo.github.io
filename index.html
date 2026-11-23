@@ -32,7 +32,7 @@
     <div class="socials">
       <a class="social linkedin" href="https://www.linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg></a>
       <a class="social cv" href="cv.html" aria-label="CV" title="CV">CV</a>
-      <a class="social gmail" href="mailto:michaeljuniorbo@gmail.com" aria-label="Email" title="michaeljuniorbo@gmail.com"><img src="images/gmail.png" alt=""></a>
+      <button type="button" class="social gmail mail-trigger" aria-label="Email" aria-haspopup="dialog" aria-expanded="false"><img src="images/gmail.png" alt=""></button>
     </div>
   </div>
   <!-- Swap this for a photo of yourself if you want: images/me.png -->
@@ -114,16 +114,82 @@
         <h3>CV</h3>
         <p>View my CV</p>
       </a>
-      <a class="contact-card gm" href="mailto:michaeljuniorbo@gmail.com">
+      <button type="button" class="contact-card gm mail-trigger" aria-haspopup="dialog" aria-expanded="false">
         <span class="social gmail"><img src="images/gmail.png" alt=""></span>
         <h3>Email</h3>
         <p>michaeljuniorbo@gmail.com</p>
-      </a>
+      </button>
     </div>
   </section>
 </main>
 
 <footer>© Michael Jr Bergmanolson</footer>
+
+<div class="mail-pop" id="mail-pop" role="dialog" aria-label="Email address" hidden>
+  <span class="mail-addr" id="mail-addr">michaeljuniorbo@gmail.com</span>
+  <div class="mail-actions">
+  <button type="button" class="mail-act" id="mail-copy" aria-label="Copy email address" title="Copy">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2v-2h2V5H9v2H7V5a2 2 0 0 1 2-2zM5 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm0 2v10h10V9z"/></svg>
+  </button>
+  <a class="mail-act outlook" href="https://outlook.live.com/mail/0/deeplink/compose?to=michaeljuniorbo@gmail.com" target="_blank" rel="noopener" aria-label="Write in Outlook" title="Outlook">
+    <img src="images/outlook.png" alt="">
+  </a>
+  <a class="mail-act gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=michaeljuniorbo@gmail.com" target="_blank" rel="noopener" aria-label="Write in Gmail" title="Gmail">
+    <img src="images/gmail.png" alt="">
+  </a>
+  </div>
+  <span class="mail-toast" id="mail-toast" aria-live="polite"></span>
+</div>
+
+<script>
+{
+  const pop = document.getElementById('mail-pop');
+  const addr = document.getElementById('mail-addr').textContent.trim();
+  const toast = document.getElementById('mail-toast');
+  let current = null;
+
+  const place = (trigger) => {
+    const r = trigger.getBoundingClientRect();
+    pop.hidden = false;
+    const w = pop.offsetWidth;
+    let left = r.left + window.scrollX;
+    left = Math.max(12, Math.min(left, window.scrollX + document.documentElement.clientWidth - w - 12));
+    pop.style.left = left + 'px';
+    pop.style.top = (r.bottom + window.scrollY + 10) + 'px';
+  };
+  const close = () => {
+    pop.hidden = true;
+    toast.textContent = '';
+    if (current) current.setAttribute('aria-expanded', 'false');
+    current = null;
+  };
+  document.querySelectorAll('.mail-trigger').forEach(t => t.addEventListener('click', e => {
+    e.stopPropagation();
+    if (current === t) { close(); return; }
+    if (current) current.setAttribute('aria-expanded', 'false');
+    current = t;
+    t.setAttribute('aria-expanded', 'true');
+    toast.textContent = '';
+    place(t);
+  }));
+  document.addEventListener('click', e => { if (!pop.hidden && !pop.contains(e.target)) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !pop.hidden) { const t = current; close(); t && t.focus(); } });
+  window.addEventListener('resize', () => { if (current) place(current); });
+
+  document.getElementById('mail-copy').addEventListener('click', async () => {
+    let ok = false;
+    try { await navigator.clipboard.writeText(addr); ok = true; } catch (err) {
+      try {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById('mail-addr'));
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        ok = document.execCommand('copy');
+      } catch (err2) {}
+    }
+    toast.textContent = ok ? 'Copied!' : 'Select the address to copy';
+  });
+}
+</script>
 
 </body>
 </html>

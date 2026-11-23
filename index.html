@@ -3,43 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Michael Jr B-O</title>
+<title>Michael Jr Bergmanolson</title>
 <meta name="description" content="Game developer – portfolio of my game projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abel&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <nav>
-    <a class="logo" href="index.html">Michael Jr B-O</a>
+    <a class="logo" href="index.html">Michael Jr Bergmanolson</a>
+    <div class="menu">
+      <a class="active" href="index.html">Home</a>
+      <a href="#games">Games</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="cta" href="#contact">Let's talk</a>
   </nav>
 </header>
 
+<section class="hero-home">
+  <div class="hero-text">
+    <p class="kicker">Hello, my name is</p>
+    <h1>Michael Jr<br>Bergmanolson</h1>
+    <p class="role">I'm a game developer &amp; game design student</p>
+    <div class="socials">
+      <a class="social linkedin" href="https://www.linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg></a>
+      <a class="social cv" href="cv.html" aria-label="CV" title="CV">CV</a>
+      <a class="social gmail" href="mailto:michaeljuniorbo@gmail.com" aria-label="Email" title="michaeljuniorbo@gmail.com"><img src="images/gmail.png" alt=""></a>
+    </div>
+  </div>
+  <!-- Swap this for a photo of yourself if you want: images/me.png -->
+  <div class="hero-art" style="background-image: url('images/roots-and-runes-icon.png');" role="img" aria-label="Wizard artwork from Roots &amp; Runes"></div>
+</section>
+
 <main class="home">
+  <section id="games" class="block">
+    <div class="block-head">
+      <p class="num">01.</p>
+      <h2 data-ghost="Games">Games</h2>
+    </div>
   <div class="grid">
 
     <!-- ===== Game 1 ===== -->
     <a class="card" href="roots-and-runes.html">
       <!-- Put a screenshot in images/ with this name and it replaces the gradient -->
       <div class="card-image"
-           style="background-image: url('images/roots-and-runes.png'), linear-gradient(160deg, #1f3a2c, #3d6b3a 55%, #c9a04a);">
+           style="background-image: url('images/roots-and-runes-icon.png');">
         <div class="card-title">Roots &amp; Runes</div>
       </div>
       <div class="tags">
         <span class="tag unity">Unity</span>
         <span class="tag csharp">C#</span>
         <span class="tag mobile">mobile</span>
+        <span class="tag team" title="Team of 6 people" aria-label="Team of 6 people"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg>6</span>
       </div>
       <div class="card-body">
         <p class="desc">A cozy survivor-roguelike where you play a wizard defending a mushroom forest against waves of enemies. Built for iOS and Android.</p>
         <p class="list-title">What I did:</p>
         <ul class="checks">
-          <li>Designed and programmed the core survivor gameplay loop</li>
+          <li>Gameplay programmer and 2D artist in a team project</li>
+          <li>Built a tower system: sprites, buying, upgrades, attacks, bug fixing and performance</li>
           <li>Built a divine light beam attack with 2D lighting, screen flash and camera shake</li>
-          <li>Set up the project for mobile builds on iOS and Android</li>
+          <li>Designed an enemy type: artwork and game balancing</li>
+          <li>Built the win and lose screens</li>
+          <li>Drew upgrade artwork, added phase-change sound cues and wrote the store text</li>
         </ul>
         <p class="read-more">Read more →</p>
       </div>
@@ -49,27 +79,51 @@
     <a class="card" href="breed-a-brainrot.html">
       <div class="card-image"
            style="background-image: url('images/breed-a-brainrot.png'), linear-gradient(160deg, #3a1f5c, #b23b6b 55%, #f2b134);">
+        <div class="wip-badge">Work In Progress</div>
         <div class="card-title">Breed a Brainrot</div>
       </div>
       <div class="tags">
         <span class="tag roblox">Roblox</span>
         <span class="tag lua">Lua</span>
+        <span class="tag pc">PC</span>
+        <span class="tag team" title="Team of 4 people" aria-label="Team of 4 people"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg>4</span>
       </div>
       <div class="card-body">
         <p class="desc">A Roblox game where you breed and collect brainrots, earn money and expand your base.</p>
-        <p class="list-title">What I did:</p>
-        <ul class="checks">
-          <li>Wrote the server-side game logic in Lua</li>
-          <li>Built the inventory system</li>
-          <li>Implemented money generation and base upgrades</li>
-          <li>Refactored the codebase into reusable modules</li>
-        </ul>
+        <p class="list-title">Work In Progress</p>
         <p class="read-more">Read more →</p>
       </div>
     </a>
 
   </div>
+  </section>
+
+  <section id="contact" class="block">
+    <div class="block-head">
+      <p class="num">02.</p>
+      <h2 data-ghost="Contact">Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card li" href="https://www.linkedin.com/in/" target="_blank" rel="noopener">
+        <span class="social linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg></span>
+        <h3>LinkedIn</h3>
+        <p>Connect with me</p>
+      </a>
+      <a class="contact-card cv" href="cv.html">
+        <span class="social cv">CV</span>
+        <h3>CV</h3>
+        <p>View my CV</p>
+      </a>
+      <a class="contact-card gm" href="mailto:michaeljuniorbo@gmail.com">
+        <span class="social gmail"><img src="images/gmail.png" alt=""></span>
+        <h3>Email</h3>
+        <p>michaeljuniorbo@gmail.com</p>
+      </a>
+    </div>
+  </section>
 </main>
+
+<footer>© Michael Jr Bergmanolson</footer>
 
 </body>
 </html>
